@@ -1,8 +1,8 @@
 
-export const Carrito = ({pedido}) => {
+export const Carrito = ({mensaje}) => {
   return (
     <div>
-        <h3>Se agrego {pedido} unidad al carrito</h3>
+        <p>{mensaje}</p>
     </div>
   )
 }
