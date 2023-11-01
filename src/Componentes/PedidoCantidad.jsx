@@ -27,13 +27,16 @@ export const PedidoCantidad = () => {
   }  
   }
   return (
-    <div>
+    <>
+      <div>
         <button onClick={()=> setCount(count+1)}>+</button>
         <label>{count}</label>
         <button onClick={()=> setCount(count-1)}>-</button>
         <button onClick={() => checkStock (count, stock)}>Agregar a carrito</button>
         <Carrito mensaje={msj}></Carrito>
-    </div>
+      </div>
+      
+    </>
   );
 }
 

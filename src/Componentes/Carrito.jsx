@@ -2,7 +2,7 @@
 export const Carrito = ({mensaje}) => {
   return (
     <div>
-        <p>{mensaje}</p>
+        <aside>{mensaje}</aside>
     </div>
   )
 }

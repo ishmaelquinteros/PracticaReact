@@ -1,11 +1,11 @@
-import PedidoCantidad from "./Componentes/PedidoCantidad";
+import { ItemListContainer } from "./Componentes/ItemListContainer/ItemListContainer";
 //import Carrito from "./Componentes/Carrito";
 
 function App() {
   return (
   <div>
-    <h4>Seleccione la cantidad a pedir:</h4>
-    <PedidoCantidad />
+    <h4>Tarjetas de productos</h4>
+    <ItemListContainer></ItemListContainer>
   </div>
 )}
 
