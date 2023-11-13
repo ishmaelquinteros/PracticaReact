@@ -1,23 +1,31 @@
+import './ItemStyle.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import PedidoCantidad from '../PedidoCantidad';
+import Accordion from 'react-bootstrap/Accordion'
+import { Link } from 'react-router-dom';
 
-const Item = ({id, titulo, descripcion, precio}) => {
+export const Item = ({id, titulo, descripcion, precio, imagen}) => {
   return (
-    <div>
-    <Card style={{ width: '18rem' }}>
-    <Card.Img variant="top" src="holder.js/100px180" />
+    <Card className='card-principal'>
+    <Card.Title>{titulo}</Card.Title>
+    <Card.Img src={imagen} />
     <Card.Body>
-    <Card.Title>{id} - {titulo}</Card.Title>
         <Card.Text>
+        <Accordion defaultActiveKey={id}>
+      <Accordion.Item eventKey={id}>
+        <Accordion.Header>Ver descripcion...</Accordion.Header>
+        <Accordion.Body>
           {descripcion}
-          <p>Precio: {precio}</p>
+        </Accordion.Body>
+      </Accordion.Item>
+      </Accordion>
+          <p>Precio: <strong>${precio}</strong></p>
         </Card.Text>
-        <Button variant="primary">Comprar</Button>
+        <Link to={'/item/'+ id}>
+        <Button variant="outline-danger">Comprar</Button>
+        </Link>
       </Card.Body>
-      <PedidoCantidad></PedidoCantidad>
     </Card>
-    </div>
   )
 }
 

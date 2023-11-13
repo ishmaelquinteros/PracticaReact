@@ -2,20 +2,20 @@ import { Carrito } from './Carrito';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-export const PedidoCantidad = () => {
+export const PedidoCantidad = ({stock, count, setCount}) => {
 
 
-    const [msj, setMensaje] = useState("");
-    const [count, setCount] = useState(0); 
-    const [stock, setStock] = useState(1)
+    const [msj, setMensaje] = useState(""); 
 
-  const AsignarStock = (propStock) => {
-        setStock(propStock);
+  const onAdd = () =>{
+    if (count === stock) return;
+    setCount(count+1);
   }
 
-  useEffect (() => {
-    AsignarStock(5);
-  }, [])
+  const onSubtract = () => {
+    if (count === 0) return;
+    setCount(count-1);
+  }
 
   const checkStock = (pedido, stockunidad) => {
    if (pedido <= stockunidad){
@@ -29,9 +29,9 @@ export const PedidoCantidad = () => {
   return (
     <>
       <div>
-        <button onClick={()=> setCount(count+1)}>+</button>
+        <button onClick={onAdd}>+</button>
         <label>{count}</label>
-        <button onClick={()=> setCount(count-1)}>-</button>
+        <button onClick={onSubtract}>-</button>
         <button onClick={() => checkStock (count, stock)}>Agregar a carrito</button>
         <Carrito mensaje={msj}></Carrito>
       </div>
